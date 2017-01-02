@@ -9,16 +9,13 @@ $("#pause").on("click", pausePress)
 function startPress () {
   if (seconds === 0) 
     $("#timer").text("Time elapsed: 0")
-  console.log ("counterState is " + counterState)
   if (counterState === "off") {
     timer = setInterval(timerAddSecond, 1000)
     counterState = "on"
-    console.log("counterState turned on")
   }
 }
 
 function timerAddSecond () {
-  console.log("timerAddSecond triggered")
   seconds ++
   updateTimerDisplay()
 }
@@ -28,7 +25,6 @@ function updateTimerDisplay () {
 }
 
 function resetPress () {
-  console.log("reset pressed")
   clearInterval(timer)
   $("#timer").text("Stop Watch")
   counterState = "off"
@@ -42,13 +38,11 @@ function pausePress () {
     console.log("paused")
     clearInterval(timer)
     counterState = "paused"
-    console.log("counterState set to paused")
     break
     case "paused":
     console.log("unpausing")
     timer = setInterval(timerAddSecond, 1000)
     counterState = "on"
-    console.log("counterState turned on")
     break
   }
   
